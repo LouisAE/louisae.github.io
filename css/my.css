@@ -1,0 +1,13 @@
+/* Here is your custom css styles. */
+.bg-cover:after {
+    background:rgba(0,0,0,0.4);
+}
+
+body.DarkMode{
+    background-color:#A18686;
+}
+/*
+header .nav-transparent {
+    background-image: linear-gradient(to right, #53535e 0%, #191e23 100%);
+}
+*/
