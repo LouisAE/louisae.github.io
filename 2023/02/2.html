@@ -269,7 +269,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-06
+                    2023-02-07
                 </div>
                 
 
@@ -308,7 +308,7 @@
 const scene = new THREE.Scene();
 scene.background = new THREE.color(0x0); //背景为黑色，默认值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="添加相机"><a href="#添加相机" class="headerlink" title="添加相机"></a>添加相机</h2><p>多数情况下使用的相机是透视相机，这种相机模拟人眼的观察，示意图如下，紫色棱台包括的范围内，物体会被渲染<br>(图片来自 <a target="_blank" rel="noopener" href="https://codepen.io/rachsmith/post/beginning-with-3d-webgl-pt-1-the-scene">Rachel Smith</a>)<br><img src="https://cdn.ncmc.me/2023/02/00/00.jpg" alt="camera"></p>
+<h2 id="添加相机"><a href="#添加相机" class="headerlink" title="添加相机"></a>添加相机</h2><p>多数情况下使用的相机是透视相机，这种相机模拟人眼的观察，示意图如下，紫色棱台包括的范围内，物体会被渲染<br>(图片来自 <a target="_blank" rel="noopener" href="https://codepen.io/rachsmith/post/beginning-with-3d-webgl-pt-1-the-scene">Rachel Smith</a>)<br><img src="https://cdn.ncmc.me/2023/02/00/00.jpg" alt="透视相机"></p>
 <p>这种相机有个问题：物体在靠近场景边缘的时候会变形。因此我后来采用正交相机。<br>正交相机和透视相机类似，但渲染的空间是个四棱柱。没有图片，自行脑补（懒。</p>
 <p>正交相机使用时要注意渲染范围的长宽比要和场景的长宽比一致，否则物体会变形。（下面的代码中，假设场景的长宽比和窗口的长宽比一致）</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">//透视型照相机
