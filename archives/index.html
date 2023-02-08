@@ -369,11 +369,7 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    由于打算把图片放在自己的服务器上，所以配置防盗链也成了一个必须完成的任务。
-在网上搜了一下，大致上是利用nginx检测http请求头中的referer参数来判断是否返回图片。
-location / {
-    root html/img;
-
+                                    通过判断referer的合法性来防止盗链
                                 
                             </div>
                             <div class="publish-info">
