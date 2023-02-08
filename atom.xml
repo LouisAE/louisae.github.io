@@ -6,7 +6,7 @@
   <link href="https://louisz.top/atom.xml" rel="self"/>
   
   <link href="https://louisz.top/"/>
-  <updated>2023-02-07T09:38:54.328Z</updated>
+  <updated>2023-02-08T15:15:49.260Z</updated>
   <id>https://louisz.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx配置防盗链</title>
+    <link href="https://louisz.top/2023/02/3.html"/>
+    <id>https://louisz.top/2023/02/3.html</id>
+    <published>2023-02-08T14:55:55.000Z</published>
+    <updated>2023-02-08T15:15:49.260Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;由于打算把图片放在自己的服务器上，所以配置防盗链也成了一个必须完成的任务。&lt;/p&gt;
+&lt;p&gt;在网上搜了一下，大致上是利用nginx检测http请求头中的referer参数来判断是否返回图片。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    
+    <category term="日积月累" scheme="https://louisz.top/tags/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>使用three.js创建3D场景</title>
