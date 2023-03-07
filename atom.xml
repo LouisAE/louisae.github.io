@@ -6,7 +6,7 @@
   <link href="https://louisz.top/atom.xml" rel="self"/>
   
   <link href="https://louisz.top/"/>
-  <updated>2023-03-05T11:54:31.852Z</updated>
+  <updated>2023-03-07T12:36:49.267Z</updated>
   <id>https://louisz.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搓一个语音唤醒</title>
+    <link href="https://louisz.top/2023/03/8.html"/>
+    <id>https://louisz.top/2023/03/8.html</id>
+    <published>2023-03-07T12:32:00.000Z</published>
+    <updated>2023-03-07T12:36:49.267Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;（非原创，代某位卷王发送）&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;（哈哈 这个排版 稀烂咯）&lt;/p&gt;
+&lt;h2 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot; class=&quot;headerlink&quot; title=&quot;目标&quot;&gt;&lt;/a&gt;目标&lt;/h2&gt;&lt;p&gt;搓一个语音唤醒（keyword</summary>
+        
+      
+    
+    
+    
+    
+    <category term="开发笔记" scheme="https://louisz.top/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="代发" scheme="https://louisz.top/tags/%E4%BB%A3%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>再游湖畔</title>
