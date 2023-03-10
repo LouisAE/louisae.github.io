@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JavaScript压缩和混淆, 路易零世的博客">
-    <meta name="description" content="简单总结JavaScript压缩和混淆">
+    <meta name="keywords" content="王爽《汇编语言》实验5 (5), 路易零世的博客">
+    <meta name="description" content="总结此实验过程和收获">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>JavaScript压缩和混淆 | 路易零世的博客</title>
+    <title>王爽《汇编语言》实验5 (5) | 路易零世的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LouisAE/louisae.github.io/favicon.png">
     
 
@@ -213,12 +213,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LouisAE/louisae.github.io/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LouisAE/louisae.github.io/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JavaScript压缩和混淆</h1>
+                    <h1 class="description center-align post-title">王爽《汇编语言》实验5 (5)</h1>
                 </div>
             </div>
         </div>
@@ -242,8 +242,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/">
-                                <span class="chip bg-color">日积月累</span>
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">学习笔记</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">汇编语言</span>
                             </a>
                         
                     </div>
@@ -258,14 +262,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-02
+                    2023-02-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-06
+                    2023-02-24
                 </div>
                 
 
@@ -292,11 +296,74 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="什么是JavaScript压缩和混淆？"><a href="#什么是JavaScript压缩和混淆？" class="headerlink" title="什么是JavaScript压缩和混淆？"></a>什么是JavaScript压缩和混淆？</h2><p>开发人员编写JS代码的时候，有许多格式规范，写出来的代码十分易读、方便开发。<br>而各大网站使用的JS代码，多数都是挤成一团的，肉眼看上去毫无章法可言，可读性几乎为零。</p>
-<p>这些让人“不忍直视”的代码，就是被压缩和混淆过的。一般的压缩通常只是除去注释、空行<br>和空格等，而混淆还会将变量名、函数名等替换成一些无意义的字符，还可能会添加一些<br>无意义的代码。</p>
-<h2 id="如何进行压缩和混淆？"><a href="#如何进行压缩和混淆？" class="headerlink" title="如何进行压缩和混淆？"></a>如何进行压缩和混淆？</h2><p>目前比较流行的混淆工具有Uglify和Google Closure Compiler等。在混淆的<br>过程中，工具还会对代码进行优化，有点类似于C语言编译器的预处理。</p>
-<h2 id="压缩、混淆的作用"><a href="#压缩、混淆的作用" class="headerlink" title="压缩、混淆的作用"></a>压缩、混淆的作用</h2><p>主要是提高JavaScript代码的运行效率，缩小代码体积。一定程度上还可以隐藏代码的运行逻辑<br>起到版权保护的作用。</p>
-<h2 id="随便写写"><a href="#随便写写" class="headerlink" title="随便写写"></a>随便写写</h2><p>个人认为压缩、混淆对代码的保护作用十分有限。如果使用的是一般的混淆方法，<br>很容易就能够还原出大致的框架。部分混淆方法混淆的代码甚至可以完整还原出所有变量名。<br>尽管有些比较“变态”的加密工具，如JavaScript Obfuscator，可以真正做到加密代码，<br>但这最多也就是提高逆向成本罢了。如果真的既要保护代码又非得用JS不可，<br>感觉WebAssembly是个比较好的解决方案。</p>
+                <h2 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h2><p>编写code段中的代码，将a段和b段数据依次相加，结果存入c段</p>
+<pre class="line-numbers language-none"><code class="language-none">assume cs:code
+
+a segment
+
+    db 1,2,3,4,5,6,7,8
+
+a ends
+
+b segment
+
+    db 1,2,3,4,5,6,7,8
+
+b ends
+
+c segment
+
+    db 0,0,0,0,0,0,0,0
+
+c ends
+
+code segment
+
+start:
+
+？？？？？？？
+
+    mov ax,4c00h
+
+    int 21h
+
+code ends
+
+end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这个题有三个数据段，但是段寄存器只有ds,es两个。。。手上这本旧课本的主人写的笔记是拿ss当第三个<br>段寄存器，这。。。应该不行吧？想破头也想不通，遂谷歌之。</p>
+<p>其中一种解决思路是引入更多的寄存器。比如si,di等。因为之前没有接触过这类寄存器，<br>不知道使用上有什么讲究，因此不采用这种思路。</p>
+<p>还有一种思路是利用栈暂存段寄存器中的数据，暂时更改段寄存器指向的段，后面再恢复成原来的值。</p>
+<p>核心代码:</p>
+<pre class="line-numbers language-none"><code class="language-none">push ds
+mov ax,c
+mov ds,ax
+......
+pop ds<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这种思路虽然效率不太好，但是知识范围没有超纲。</p>
+<p>最终代码如下</p>
+<pre class="line-numbers language-none"><code class="language-none">  mov ax,a
+  mov ds,ax
+  mov ax,b
+  mov es,ax
+  mov ax,0
+  mov bx,0
+  
+s:mov al,[bx]
+  add al,es:[bx]
+  push ds
+  mov dx,c
+  mov ds,dx
+  mov [bx],ax
+  pop ds
+  inc bx
+  loop s
+  
+  mov ax,4c00h
+  int 21h
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>调试过程中，曾经利用ax来作为偏移量寻址，类似 mov bl,[ax] 这样的，但是编译时报错，<br>查阅资料发现16位处理器不能使用ax寻址，原因不知道。（书上貌似没写）（补充：在后面第8章写了）</p>
 
                 
             </div>
@@ -361,8 +428,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/">
-                                    <span class="chip bg-color">日积月累</span>
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">学习笔记</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">汇编语言</span>
                                 </a>
                             
                         </div>
@@ -412,24 +483,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/02/5.html">
+                <a href="/2023/03/7.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LouisAE/louisae.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="使用three.js创建3D场景">
+                        <img src="https://cdn.jsdelivr.net/gh/LouisAE/louisae.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="再游湖畔">
                         
-                        <span class="card-title">使用three.js创建3D场景</span>
+                        <span class="card-title">再游湖畔</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            用three.js创建一个简单的3D场景
+                            熟悉的湖畔，新的体会
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-05
                         </span>
                         <span class="publish-author">
                             
@@ -442,12 +513,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">开发笔记</span>
-                    </a>
-                    
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                        <span class="chip bg-color">生活</span>
                     </a>
                     
                 </div>
@@ -458,27 +525,27 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/02/2.html">
+                <a href="/2023/02/1.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LouisAE/louisae.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="JavaScript压缩和混淆">
+                        <img src="https://cdn.jsdelivr.net/gh/LouisAE/louisae.github.io/medias/featureimages/15.jpg" class="responsive-img" alt="开端">
                         
-                        <span class="card-title">JavaScript压缩和混淆</span>
+                        <span class="card-title">开端</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单总结JavaScript压缩和混淆
+                            新的开端，新的生活
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-19
                             </span>
                         <span class="publish-author">
                             
@@ -488,12 +555,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/">
-                        <span class="chip bg-color">日积月累</span>
+                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                        <span class="chip bg-color">生活</span>
                     </a>
                     
                 </div>
