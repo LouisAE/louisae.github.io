@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: 开发笔记, 路易零世的博客">
-    <meta name="description" content="路易零世的博客">
+    <meta name="keywords" content="8086汇编中物理地址的合成方式, 路易零世的博客">
+    <meta name="description" content="8086汇编中物理地址的合成方式总结">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>标签: 开发笔记 | 路易零世的博客</title>
+    <title>8086汇编中物理地址的合成方式 | 路易零世的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.ncmc.me/static/favicon.png">
     
 
@@ -209,189 +209,426 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.ncmc.me/static/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">8086汇编中物理地址的合成方式</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
     <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                路易零世的博客
-                
-            </div>
-
-            <div class="description center-align">
-                
-                    
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "https://cdn.ncmc.me/static/medias/banner/" + '0.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
-
-
-    </div>
-</div>
-
-<main class="content">
-
-    
-
-<div id="tags" class="container chip-container">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
     <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">学习笔记</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">汇编语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
             </div>
-            <div class="tag-chips">
+
+            <div class="post-info">
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-03-20
+                </div>
                 
-                <a href="/tags/%E7%94%9F%E6%B4%BB/" title="生活: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="生活" style="background-color: #F9EBEA;">生活
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
+
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-03-20
+                </div>
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="学习笔记: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="学习笔记" style="background-color: #F5EEF8;">学习笔记
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
+
                 
+
                 
-                <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" title="汇编语言: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="汇编语言" style="background-color: #D5F5E3;">汇编语言
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/" title="日积月累: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="日积月累" style="background-color: #E8F8F5;">日积月累
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%B8%B8%E6%88%8F/" title="游戏: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="游戏" style="background-color: #FEF9E7;">游戏
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E4%BB%A3%E5%8F%91/" title="代发: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="代发" style="background-color: #F8F9F9;">代发
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" title="开发笔记: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="开发笔记" style="background-color: #82E0AA;">开发笔记
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/JavaScript/" title="JavaScript: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="JavaScript" style="background-color: #D7BDE2;">JavaScript
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+
                 
             </div>
         </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.ncmc.me/static/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在自学汇编语言的同时，学校也在上“微机原理与应用”这门课。感觉学这类东西还是要结合实验，<br>不然像现在的“微机原理”课一样，很多东西非常抽象，光看书根本无法理解。<br>关于8086处理器对地址的处理，虽然感觉这部份应该很好理解，但是为了巩固印象，水一篇文章总结一下。</p>
+<h2 id="8086中地址的处理方式及原因"><a href="#8086中地址的处理方式及原因" class="headerlink" title="8086中地址的处理方式及原因"></a>8086中地址的处理方式及原因</h2><p>8086处理器使用 “段地址：偏移地址” 的方式表示地址。例如：073F:0000表示073F00这个物理地址，其中段地址和偏移地址都是16位的数字。<br>事实上，8086处理器中的地址加法器会把段地址乘16，再与偏移地址相加以合成物理地址。例如073F:0005<br>对应的物理地址是073FH * 10H + 5H = 073F5H。(H表示16进制)。</p>
+<p>之所以用这种看起来啰哩啰唆的方式表示地址，是因为8086处理器有20根地址总线，可以传送20位地址，<br>然而，8086处理器是16位处理器，一次只能处理16位的数据，所以要依靠两个16位的数据来间接表示20位的地址。</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>如果足够细心，就会发现这种寻址方式存在一个令人疑惑的地方：明明是20位地址，为什么要用两个16位的数据来表示呢？<br>如果偏移地址不止一个十六进制位，会出现什么情况呢？</p>
+<p>假设有一个地址：073F:0022,按照上面的方式合成物理地址：<br>073FH * 10H + 22H = 07412H。看起来，这个地址也可以写成0741:2。这两种写法都是正确的。</p>
+<p>实际上，<br>同一个物理地址对应多个“段地址：偏移地址”。只要按照正确的法则合成物理地址，就不会出错。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">LouisZ</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://louisz.top/2023/03/9.html">https://louisz.top/2023/03/9.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">LouisZ</a>
+                    !
+                </span>
+            </div>
+        
     </div>
-</div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">学习笔记</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">汇编语言</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.ncmc.me/static/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="wechat,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.ncmc.me/static/libs/share/js/social-share.min.js"></script>
+    
 
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
+</div>
+
+                </div>
+            </div>
             
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="代发, 开发笔记" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/03/8.html">
-                        <div class="card-image tag-image">
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/03/9.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/5.jpg" class="responsive-img" alt="8086汇编中物理地址的合成方式">
+                        
+                        <span class="card-title">8086汇编中物理地址的合成方式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            8086汇编中物理地址的合成方式总结
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-20
+                            </span>
+                        <span class="publish-author">
                             
+                            <i class="fas fa-user fa-fw"></i>
+                            LouisZ
                             
-                            <img src="https://cdn.ncmc.me/static/medias/featureimages/15.jpg" class="responsive-img" alt="搓一个语音唤醒">
-                            
-                            <span class="card-title">搓一个语音唤醒</span>
-                        </div>
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
+                    
+                    <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">汇编语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/03/8.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/15.jpg" class="responsive-img" alt="搓一个语音唤醒">
+                        
+                        <span class="card-title">搓一个语音唤醒</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            语音唤醒开发记录（尚未成功，躺
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2023-03-07
                             </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                LouisZ
-                                
-                            </span>
-                        </div>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            LouisZ
+                            
+                        </span>
                     </div>
                 </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="开发笔记, JavaScript" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/02/6.html">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="https://cdn.ncmc.me/static/medias/featureimages/1.jpg" class="responsive-img" alt="使用three.js创建3D场景">
-                            
-                            <span class="card-title">使用three.js创建3D场景</span>
-                        </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BB%A3%E5%8F%91/">
+                        <span class="chip bg-color">代发</span>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                LouisZ
-                                
-                            </span>
-                        </div>
-                    </div>
+                    
+                    <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">开发笔记</span>
+                    </a>
+                    
                 </div>
+                
             </div>
-            
         </div>
-    </article>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.ncmc.me/static/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="https://cdn.ncmc.me/static/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.ncmc.me/static/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.ncmc.me/static/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.ncmc.me/static/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.ncmc.me/static/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
 
 
