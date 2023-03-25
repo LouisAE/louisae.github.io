@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="王爽《汇编语言》实验5 (5), 路易零世的博客">
-    <meta name="description" content="总结此实验过程和收获">
+    <meta name="keywords" content="nginx配置防盗链, 路易零世的博客">
+    <meta name="description" content="通过判断referer的合法性来防止盗链">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>王爽《汇编语言》实验5 (5) | 路易零世的博客</title>
+    <title>nginx配置防盗链 | 路易零世的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.ncmc.me/static/favicon.png">
     
 
@@ -61,9 +61,9 @@
 
     <script src="https://cdn.ncmc.me/static/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="路易零世的博客" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="路易零世的博客" type="application/atom+xml">
 </head>
 
 
@@ -213,12 +213,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.ncmc.me/static/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.ncmc.me/static/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">王爽《汇编语言》实验5 (5)</h1>
+                    <h1 class="description center-align post-title">nginx配置防盗链</h1>
                 </div>
             </div>
         </div>
@@ -242,12 +242,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">学习笔记</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
-                                <span class="chip bg-color">汇编语言</span>
+                            <a href="/tags/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/">
+                                <span class="chip bg-color">日积月累</span>
                             </a>
                         
                     </div>
@@ -262,14 +258,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-21
+                    2023-02-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-03-25
                 </div>
                 
 
@@ -296,74 +292,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h2><p>编写code段中的代码，将a段和b段数据依次相加，结果存入c段</p>
-<pre class="line-numbers language-none"><code class="language-none">assume cs:code
-
-a segment
-
-    db 1,2,3,4,5,6,7,8
-
-a ends
-
-b segment
-
-    db 1,2,3,4,5,6,7,8
-
-b ends
-
-c segment
-
-    db 0,0,0,0,0,0,0,0
-
-c ends
-
-code segment
-
-start:
-
-？？？？？？？
-
-    mov ax,4c00h
-
-    int 21h
-
-code ends
-
-end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这个题有三个数据段，但是段寄存器只有ds,es两个。。。手上这本旧课本的主人写的笔记是拿ss当第三个<br>段寄存器，这。。。应该不行吧？想破头也想不通，遂谷歌之。</p>
-<p>其中一种解决思路是引入更多的寄存器。比如si,di等。因为之前没有接触过这类寄存器，<br>不知道使用上有什么讲究，因此不采用这种思路。</p>
-<p>还有一种思路是利用栈暂存段寄存器中的数据，暂时更改段寄存器指向的段，后面再恢复成原来的值。</p>
-<p>核心代码:</p>
-<pre class="line-numbers language-none"><code class="language-none">push ds
-mov ax,c
-mov ds,ax
-......
-pop ds<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这种思路虽然效率不太好，但是知识范围没有超纲。</p>
-<p>最终代码如下</p>
-<pre class="line-numbers language-none"><code class="language-none">  mov ax,a
-  mov ds,ax
-  mov ax,b
-  mov es,ax
-  mov ax,0
-  mov bx,0
-  
-s:mov al,[bx]
-  add al,es:[bx]
-  push ds
-  mov dx,c
-  mov ds,dx
-  mov [bx],ax
-  pop ds
-  inc bx
-  loop s
-  
-  mov ax,4c00h
-  int 21h
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>调试过程中，曾经利用ax来作为偏移量寻址，类似 mov bl,[ax] 这样的，但是编译时报错，<br>查阅资料发现16位处理器不能使用ax寻址，原因不知道。（书上貌似没写）（补充：在后面第8章写了）</p>
+                <p>由于打算把图片放在自己的服务器上，所以配置防盗链也成了一个必须完成的任务。</p>
+<p>在网上搜了一下，大致上是利用nginx检测http请求头中的referer参数来判断是否返回图片。</p>
+<pre class="language-none"><code class="language-none">location / {
+    root html/img;
+    valid_referers none blocked  *.example.com example.com ;
+    if ($invalid_referer) {
+        return 403;
+        break;
+     }
+     access_log off;
+}</code></pre>
+<p>重点在第3行”vaild_referers”的设置。</p>
+<p>根据<a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_referer_module.html#valid_referers">nginx官方文档</a><br>的解释，”valid_referers”的几个参数实际上是几个条件。</p>
+<p>“none”参数表示http header中没有referer,”blocked”表示http header中有referer但被防火墙或者代理服务器删除，<br>后面指定的域名表示在referer中匹配到相应的域名。只要满足以上任意一条，$invalid_referer变量则变为<strong>空字符串</strong>， 否则为1。<br>可以通过判断该变量的值来确定请求是否合法，达到防盗链的目的。</p>
 
                 
             </div>
@@ -390,7 +332,7 @@ s:mov al,[bx]
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://louisz.top/2023/02/2.html">https://louisz.top/2023/02/2.html</a>
+                    <a href="https://louisz.top/2023/02/53518.html">https://louisz.top/2023/02/53518.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -428,12 +370,8 @@ s:mov al,[bx]
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">学习笔记</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
-                                    <span class="chip bg-color">汇编语言</span>
+                                <a href="/tags/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/">
+                                    <span class="chip bg-color">日积月累</span>
                                 </a>
                             
                         </div>
@@ -483,24 +421,24 @@ s:mov al,[bx]
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/03/7.html">
+                <a href="/2023/02/48452.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.ncmc.me/static/medias/featureimages/17.jpg" class="responsive-img" alt="再游湖畔">
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/17.jpg" class="responsive-img" alt="群星异闻录">
                         
-                        <span class="card-title">再游湖畔</span>
+                        <span class="card-title">群星异闻录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            熟悉的湖畔，新的体会
+                            《群星》剧本搬运
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-19
                         </span>
                         <span class="publish-author">
                             
@@ -513,8 +451,12 @@ s:mov al,[bx]
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                        <span class="chip bg-color">生活</span>
+                    <a href="/tags/%E6%B8%B8%E6%88%8F/">
+                        <span class="chip bg-color">游戏</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BB%A3%E5%8F%91/">
+                        <span class="chip bg-color">代发</span>
                     </a>
                     
                 </div>
@@ -528,24 +470,24 @@ s:mov al,[bx]
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/02/1.html">
+                <a href="/2023/02/36984.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.ncmc.me/static/medias/featureimages/15.jpg" class="responsive-img" alt="开端">
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/1.jpg" class="responsive-img" alt="使用three.js创建3D场景">
                         
-                        <span class="card-title">开端</span>
+                        <span class="card-title">使用three.js创建3D场景</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            新的开端，新的生活
+                            用three.js创建一个简单的3D场景
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-06
                             </span>
                         <span class="publish-author">
                             
@@ -558,8 +500,12 @@ s:mov al,[bx]
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                        <span class="chip bg-color">生活</span>
+                    <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">开发笔记</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>

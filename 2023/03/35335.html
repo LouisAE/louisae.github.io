@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="8086汇编中物理地址的合成方式, 路易零世的博客">
-    <meta name="description" content="8086汇编中物理地址的合成方式总结">
+    <meta name="keywords" content="再游湖畔, 路易零世的博客">
+    <meta name="description" content="熟悉的湖畔，新的体会">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>8086汇编中物理地址的合成方式 | 路易零世的博客</title>
+    <title>再游湖畔 | 路易零世的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.ncmc.me/static/favicon.png">
     
 
@@ -61,9 +61,9 @@
 
     <script src="https://cdn.ncmc.me/static/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="路易零世的博客" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="路易零世的博客" type="application/atom+xml">
 </head>
 
 
@@ -213,12 +213,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.ncmc.me/static/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.ncmc.me/static/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">8086汇编中物理地址的合成方式</h1>
+                    <h1 class="description center-align post-title">再游湖畔</h1>
                 </div>
             </div>
         </div>
@@ -242,12 +242,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">学习笔记</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
-                                <span class="chip bg-color">汇编语言</span>
+                            <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                                <span class="chip bg-color">生活</span>
                             </a>
                         
                     </div>
@@ -262,14 +258,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-20
+                    2023-03-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-20
+                    2023-03-25
                 </div>
                 
 
@@ -296,12 +292,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在自学汇编语言的同时，学校也在上“微机原理与应用”这门课。感觉学这类东西还是要结合实验，<br>不然像现在的“微机原理”课一样，很多东西非常抽象，光看书根本无法理解。关于8086处理器对地址的处理，虽然感觉这部份应该很好理解，但是为了巩固印象，水一篇文章总结一下。</p>
-<h2 id="8086中地址的处理方式及原因"><a href="#8086中地址的处理方式及原因" class="headerlink" title="8086中地址的处理方式及原因"></a>8086中地址的处理方式及原因</h2><p>8086处理器使用 “段地址：偏移地址” 的方式表示地址。例如：073F:0000表示073F00这个物理地址，其中段地址和偏移地址都是16位的数字。<br>事实上，8086处理器中的地址加法器会把段地址乘16，再与偏移地址相加以合成物理地址。例如073F:0005对应的物理地址是073FH * 10H + 5H = 073F5H。(H表示16进制)。</p>
-<p>之所以用这种看起来啰哩啰唆的方式表示地址，是因为8086处理器有20根地址总线，可以传送20位地址，<br>然而，8086处理器是16位处理器，一次只能处理16位的数据，所以要依靠两个16位的数据来间接表示20位的地址。</p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>如果足够细心，就会发现这种寻址方式存在一个有趣的问题：如果偏移地址不止一个十六进制位，会出现什么情况呢？</p>
-<p>假设有一个地址：073F:0022,按照上面的方式合成物理地址：073FH * 10H + 22H = 07412H。看起来，这个地址也可以写成0741:0002。这两种写法都是正确的。</p>
-<p>实际上，同一个物理地址对应多个“段地址：偏移地址”。只要按照正确的法则合成物理地址，就不会出错。</p>
+                <p>子在川上曰：“逝者如斯夫，不舍昼夜”。时间如河水一般滚滚流去，曾经熟悉的事物所发生的变化也大得让人吃惊。</p>
+<p>时隔两个月，我又一次循着熟悉的湖边小路散步。拦腰高的石头围栏，被齐胸高、涂着黑灰色油漆的铁制栏杆所取代。<br>和两个月前相比，本就很低的水位变得更低了。原本靠近湖岸的浅滩被剥去外衣，露出崎岖不平的身躯。<br>长在湖的一角的一片矮竹林被连根拔起装进垃圾袋，随意地放在路旁。这片林子曾经充满了鸟儿们的欢声笑语。</p>
+<p><img src="https://cdn.ncmc.me/2023/03/00/00.jpg" alt="路旁的遗弃物"></p>
+<p>在另一个角落，我发现了那些被替换掉、兢兢业业几十载的石围栏的最终归宿——它们躺在水里一言不发，不知是嘲讽，抑或是悲哀。</p>
+<p><img src="https://cdn.ncmc.me/2023/03/00/01.jpg" alt="水中石柱"></p>
+<p>距离上一次在湖畔散步不过数周，在某位领导的脑子一热、大腿一拍之下，这片湖就发生了如此大的变化。实在不得不感慨世事难料。静止的事物尚且如此，人就更过之而无不及了。也不知下次再见到那位临走时说”我没有家“的特殊的女孩子的时候，她是否也会发生如此大的变化呢？</p>
 
                 
             </div>
@@ -328,7 +324,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://louisz.top/2023/03/9.html">https://louisz.top/2023/03/9.html</a>
+                    <a href="https://louisz.top/2023/03/35335.html">https://louisz.top/2023/03/35335.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -366,12 +362,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">学习笔记</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
-                                    <span class="chip bg-color">汇编语言</span>
+                                <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                                    <span class="chip bg-color">生活</span>
                                 </a>
                             
                         </div>
@@ -417,62 +409,11 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/2023/03/9.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.ncmc.me/static/medias/featureimages/5.jpg" class="responsive-img" alt="8086汇编中物理地址的合成方式">
-                        
-                        <span class="card-title">8086汇编中物理地址的合成方式</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            8086汇编中物理地址的合成方式总结
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-20
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            LouisZ
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
-                        <span class="chip bg-color">汇编语言</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/03/8.html">
+                <a href="/2023/03/56157.html">
                     <div class="card-image">
                         
                         
@@ -488,8 +429,57 @@
                         
                     </div>
                     <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            LouisZ
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">开发笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BB%A3%E5%8F%91/">
+                        <span class="chip bg-color">代发</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/02/17545.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/6.jpg" class="responsive-img" alt="王爽《汇编语言》实验5 (5)">
+                        
+                        <span class="card-title">王爽《汇编语言》实验5 (5)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            总结此实验过程和收获
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
                             </span>
                         <span class="publish-author">
                             
@@ -502,12 +492,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BB%A3%E5%8F%91/">
-                        <span class="chip bg-color">代发</span>
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
                     </a>
                     
-                    <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">开发笔记</span>
+                    <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">汇编语言</span>
                     </a>
                     
                 </div>

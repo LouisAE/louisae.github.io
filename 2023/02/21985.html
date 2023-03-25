@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="搓一个语音唤醒, 路易零世的博客">
-    <meta name="description" content="语音唤醒开发记录（尚未成功，躺">
+    <meta name="keywords" content="开端, 路易零世的博客">
+    <meta name="description" content="新的开端，新的生活">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>搓一个语音唤醒 | 路易零世的博客</title>
+    <title>开端 | 路易零世的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.ncmc.me/static/favicon.png">
     
 
@@ -61,9 +61,9 @@
 
     <script src="https://cdn.ncmc.me/static/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="路易零世的博客" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="路易零世的博客" type="application/atom+xml">
 </head>
 
 
@@ -218,7 +218,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">搓一个语音唤醒</h1>
+                    <h1 class="description center-align post-title">开端</h1>
                 </div>
             </div>
         </div>
@@ -242,12 +242,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BB%A3%E5%8F%91/">
-                                <span class="chip bg-color">代发</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">开发笔记</span>
+                            <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                                <span class="chip bg-color">生活</span>
                             </a>
                         
                     </div>
@@ -262,14 +258,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-07
+                    2023-02-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-07
+                    2023-03-25
                 </div>
                 
 
@@ -296,23 +292,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>（非原创，代某位卷王发送）</p>
-<hr>
-<p>（哈哈 这个排版 稀烂咯）</p>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>搓一个语音唤醒（keyword spotting），用于上课时摸鱼，老师点名时可以做出提醒，并且保留点名前后的一部分音频（毕竟还得知道为啥点你）。只需要识别名字，因此输入长度为1秒左右，约为两到四个音节，输出为两个类别的概率。计划采用简单的CNN+线性，将图输入进来卷积+池化然后激活，过两遍，采用适应性池化压缩为$图数\times1\times1$的向量，进两层线性+激活，最后输出为二维向量。</p>
-<h2 id="首先做出图像来"><a href="#首先做出图像来" class="headerlink" title="首先做出图像来"></a>首先做出图像来</h2><p>取一个音轨，使用快速傅里叶变换来将音频变成频谱图。首先，用<code>torchaudio.load来load一个.wav</code>，返回第一个参数是波形，第二个是采样率，用<code>torchaudio.transforms.MelSpectrogram(这里填上面解析出来的波形)</code>（梅尔图）。其实最好输入前做个滤波之类的预处理，我是因为训练的时候发现有大量的极大值（其他都是零点几，有几个10几的）所以用了些奇怪的函数来（就是log的一个变形），然后进行一个归一化（用的是最大最小值归一化）</p>
-<h2 id="然后丢给神经网络，先组一个网络"><a href="#然后丢给神经网络，先组一个网络" class="headerlink" title="然后丢给神经网络，先组一个网络"></a>然后丢给神经网络，先组一个网络</h2><p>由于没有经验，加上torch本身的教程和中文教程都大同小异地看不懂，所以一边摸索一边做（但是笔记是写完才做的。。。所以基本上忘记踩了什么坑了 悲）<br>aF采用elu函数（变形的泄露relu），卷积层1为<u>1层入4层出7核格宽</u>，经过(2,2)的最大池化，卷积层2为<u>4层入6层出5核格宽</u>，经过AdaptiveMaxPool2d变为$6\times1\times1$向量，线性层1<u>输入6输出8</u>，线性层2<u>输入8输出2</u>，net本身结构为</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    x<span class="token operator">=</span>maxPool<span class="token punctuation">(</span>aF<span class="token punctuation">(</span>cov1<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    x<span class="token operator">=</span>adaptivePool<span class="token punctuation">(</span>aF<span class="token punctuation">(</span>cov2<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    x<span class="token operator">=</span>x<span class="token punctuation">.</span>view<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment">#这个是压缩为二维向量</span>
-    x<span class="token operator">=</span>aF<span class="token punctuation">(</span>linear1<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    x<span class="token operator">=</span>sigmoid<span class="token punctuation">(</span>linear2<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#主要是考虑到这是个概率，所以用个sigmoid变换到0~1</span>
-    <span class="token keyword">return</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="前向和反向"><a href="#前向和反向" class="headerlink" title="前向和反向"></a>前向和反向</h2><p>首先先将输入的东西变成tensor，丢进去forward输出用个概率，和标准比对，开始是反向更新。首先先重置优化器的梯度，optimizer用的是optim.SGD(net.parameters(),lr)，其中net.parameters()是需要更新的参数，lr是learningRate（具体参数自己找pytorch，笑死，毫无指引）。loss采用交叉熵<code>nn.CrossEntropyLoss</code>，参数为两个float，我是把两个tensor给.float再导进去。然后对loss进行一个.backward()来取梯度，再optimizer.step()来进行一个步进更新。我最后面返回了一个loss.item()，问题是这个是啥我还没看懂，说是loss但是很不平滑。</p>
-<h2 id="将音频流切片丢进去判断有没有激活"><a href="#将音频流切片丢进去判断有没有激活" class="headerlink" title="将音频流切片丢进去判断有没有激活"></a>将音频流切片丢进去判断有没有激活</h2><p>就是验证部分，取了数据集里面的另一部分来进行检验，我做出来是0.93的准确率。</p>
-<h2 id="从外部输入音频流"><a href="#从外部输入音频流" class="headerlink" title="从外部输入音频流"></a>从外部输入音频流</h2><p>使用pyaudio库。首先是用<code>audio=pyaudio.PyAudio()</code>初始化一个类变量，调用函数<code>stream=audio.open(参数)</code>进行初始化设置，调用<code>data=stream.read(参数)</code>来获取音频流，音频流是记为两位十六进制数的二进制字符串，我是用<code>np.frombuffer(stream.read(这里是frames_per_buffer),dtype=np.float32)</code>来变换的，记得因为是实时音频流所以写while里面，至于这堆二进制怎么变成波形图就靠np罢（称赞一下写综述的大大，该方法经过一系列采坑后通过<a href="zhuanlan.zhihu.com/p/611234973">综述</a>找到的。<br>采集设备也比较重要，好的麦克风可以先处理掉一部分噪声，收音也更集中。一开始用耳麦做的时候噪点非常多，回来换了舍友的麦之后梅尔图干净了不少。但是还是有个问题，我是按处理.wav输入的方式处理<code>np.frombuffer</code>解析的数据，既把它的返回直接当成时域的信号，清洗后输入转换成梅尔图，再与先前获取的底噪的梅尔图相减。结果上看，结果归一化后，较大值比较多，较小值比较少，与从.wav中获取的梅尔图恰相反。</p>
-<h2 id="遇到的问题（只能想起一些li）"><a href="#遇到的问题（只能想起一些li）" class="headerlink" title="遇到的问题（只能想起一些li）"></a>遇到的问题（只能想起一些li）</h2><p>比如说最开始的梅尔图，会导致输入的图大部分数在0~1少部分在10以上或者-10以下，归一化之后就会导致大部分数挤在中间（当然，你不归一化就没有这个烦恼了 大概 我懒得优化了 <del>反正也是堆屎山</del>），所有没用原本的log2函数，而且有负数，所以考虑了用有负数部分的泄露relu函数变形。<br>然后还有就是如果发现自己训练的RC比例和样本比例相同那可能就是你样本有问题（别问我怎么知道的），我训练目标用的是<a target="_blank" rel="noopener" href="http://www.openslr.org/85/">北京希尔贝壳的HIMIA数据集</a>（吐槽一下，我发现为什么英文只有女声，是我查找的问题吗？），训练的非目标样本是随便截的音频。<br>我使用<code>nn.AdaptiveMaxPool2d</code>是考虑了输入的音频长度可能有一定范围的差别，所以加的，你当然可以不加，你喜欢的话awa<br>一开始做那个外部音频流的时候就只找到pyaudio能采集，然后一开始用np.fromstring来处理二进制发现经过很奇怪，没法转换到tensor中进行MelSpectrogram，所以又试了wave库，本来要试ffmpeg的，结果发现Python上的ffmpeg库是只能处理视频的半成品，然后就放弃了去查综述。<br>MelSpectrogram的语法是<code>MelSpectrogram(参数)(tensor形式的输入)</code>，如果报了int is not callable之类的（具体忘了x）那应该是MelSpectrogram的输入你搞错了，请检查一下输入是否为tensor，以及维度（？这个不确定会不会是）</p>
+                <p>开学了。</p>
+<p>恰是春季，尽管还有些许寒意，也难掩生机勃勃。曾经因封控而变得冷清的街道，也恢复了往日的繁荣。</p>
+<p>火车站一如既往，不一样的是车站大门口悬挂的写着“请出示健康码”的牌子不见了，那些低头操作手机寻找健康码、堵住通道的旅客没有了。<br>候车大厅也似乎比过去更热闹了。</p>
+<p><img src="https://cdn.ncmc.me/2023/02/02/00.jpg" alt="火车站"></p>
+<p>不知是常态还是今天乘客带的行李特别多，上了高铁，就看见乘务员们为了乘客们的行李前后忙活。时而大声询问不按规定放置、堵塞通道的行李属于哪位乘客，<br>时而挪开堵住车内洗手间门的行李箱。好不容易才在车开之前，把所有的大件行李都放到合适的位置。</p>
+<p>进了校门，一度设置在门后，检查返校生健康证明和健康申报结果的关卡早已不见踪影。<br>站在一个又一个遮雨棚接起来形成的长长的通道入口，可以毫无阻拦地看见另一端的出口。</p>
+<p>总感觉乌云散去后露出的天空特别蓝，天朗气清，微风拂面。</p>
+<p>真惬意啊。</p>
 
                 
             </div>
@@ -339,7 +326,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://louisz.top/2023/03/8.html">https://louisz.top/2023/03/8.html</a>
+                    <a href="https://louisz.top/2023/02/21985.html">https://louisz.top/2023/02/21985.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -377,12 +364,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BB%A3%E5%8F%91/">
-                                    <span class="chip bg-color">代发</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">开发笔记</span>
+                                <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                                    <span class="chip bg-color">生活</span>
                                 </a>
                             
                         </div>
@@ -432,24 +415,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/03/9.html">
+                <a href="/2023/02/17545.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.ncmc.me/static/medias/featureimages/5.jpg" class="responsive-img" alt="8086汇编中物理地址的合成方式">
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/6.jpg" class="responsive-img" alt="王爽《汇编语言》实验5 (5)">
                         
-                        <span class="card-title">8086汇编中物理地址的合成方式</span>
+                        <span class="card-title">王爽《汇编语言》实验5 (5)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            8086汇编中物理地址的合成方式总结
+                            总结此实验过程和收获
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
                         </span>
                         <span class="publish-author">
                             
@@ -481,24 +464,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/03/7.html">
+                <a href="/2023/02/48452.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.ncmc.me/static/medias/featureimages/17.jpg" class="responsive-img" alt="再游湖畔">
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/17.jpg" class="responsive-img" alt="群星异闻录">
                         
-                        <span class="card-title">再游湖畔</span>
+                        <span class="card-title">群星异闻录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            熟悉的湖畔，新的体会
+                            《群星》剧本搬运
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-19
                             </span>
                         <span class="publish-author">
                             
@@ -511,8 +494,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                        <span class="chip bg-color">生活</span>
+                    <a href="/tags/%E6%B8%B8%E6%88%8F/">
+                        <span class="chip bg-color">游戏</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BB%A3%E5%8F%91/">
+                        <span class="chip bg-color">代发</span>
                     </a>
                     
                 </div>

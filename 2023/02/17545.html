@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="使用three.js创建3D场景, 路易零世的博客">
-    <meta name="description" content="用three.js创建一个简单的3D场景">
+    <meta name="keywords" content="王爽《汇编语言》实验5 (5), 路易零世的博客">
+    <meta name="description" content="总结此实验过程和收获">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>使用three.js创建3D场景 | 路易零世的博客</title>
+    <title>王爽《汇编语言》实验5 (5) | 路易零世的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.ncmc.me/static/favicon.png">
     
 
@@ -61,9 +61,9 @@
 
     <script src="https://cdn.ncmc.me/static/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="路易零世的博客" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="路易零世的博客" type="application/atom+xml">
 </head>
 
 
@@ -213,12 +213,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.ncmc.me/static/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.ncmc.me/static/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">使用three.js创建3D场景</h1>
+                    <h1 class="description center-align post-title">王爽《汇编语言》实验5 (5)</h1>
                 </div>
             </div>
         </div>
@@ -242,12 +242,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">开发笔记</span>
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">学习笔记</span>
                             </a>
                         
-                            <a href="/tags/JavaScript/">
-                                <span class="chip bg-color">JavaScript</span>
+                            <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">汇编语言</span>
                             </a>
                         
                     </div>
@@ -262,14 +262,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-06
+                    2023-02-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-07
+                    2023-03-25
                 </div>
                 
 
@@ -296,61 +296,74 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="总流程"><a href="#总流程" class="headerlink" title="总流程"></a>总流程</h2><ul>
-<li>新建一个空的场景</li>
-<li>添加相机和灯光</li>
-<li>添加各个物体</li>
-<li>创建渲染器</li>
-<li>使用渲染器渲染场景</li>
-</ul>
-<h2 id="新建场景"><a href="#新建场景" class="headerlink" title="新建场景"></a>新建场景</h2><p>直接新建一个场景对象</p>
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import * as THREE from "three"; //导入
-const scene = new THREE.Scene();
-scene.background = new THREE.color(0x0); //背景为黑色，默认值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h2 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h2><p>编写code段中的代码，将a段和b段数据依次相加，结果存入c段</p>
+<pre class="language-none"><code class="language-none">assume cs:code
 
-<h2 id="添加相机"><a href="#添加相机" class="headerlink" title="添加相机"></a>添加相机</h2><p>多数情况下使用的相机是透视相机，这种相机模拟人眼的观察，示意图如下，紫色棱台包括的范围内，物体会被渲染<br>(图片来自 <a target="_blank" rel="noopener" href="https://codepen.io/rachsmith/post/beginning-with-3d-webgl-pt-1-the-scene">Rachel Smith</a>)<br><img src="https://cdn.ncmc.me/2023/02/00/00.jpg" alt="透视相机"></p>
-<p>这种相机有个问题：物体在靠近场景边缘的时候会变形。因此我后来采用正交相机。<br>正交相机和透视相机类似，但渲染的空间是个四棱柱。没有图片，自行脑补（懒。</p>
-<p>正交相机使用时要注意渲染范围的长宽比要和场景的长宽比一致，否则物体会变形。（下面的代码中，假设场景的长宽比和窗口的长宽比一致）</p>
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">//透视型照相机
-const camera = new THREE.PerspectiveCamera(
-    100, //视野角度fov
-    window.innerWidth / window.innerHeight,//长宽比
-    0.1,//最近渲染距离(就是near plane到照相机的距离)
-    1000);//最远渲染距离(类似，far plane)
-camera.position.z = 35;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">//正交照相机
-let renderWidth = 60;
-let windowWidth = window.innerWidth,windowHeight = window.innerHeight;
-const camera = new THREE.OrthographicCamera(
-  -renderWidth,//渲染左边界
-  renderWidth,//渲染右边界
-  renderWidth*windowHeight/windowWidth,//渲染上边界
-  -renderWidth*windowHeight/windowWidth,//渲染下边界
-  5,//最近渲染距离
-  100);//最远渲染距离
-camera.position.z = 20;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="添加灯光"><a href="#添加灯光" class="headerlink" title="添加灯光"></a>添加灯光</h2><p>这玩意还没搞懂，先用着最简单的</p>
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">const light = new THREE.AmbientLight(0x404040);
-scene.add(light);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+a segment
 
-<h2 id="添加物体"><a href="#添加物体" class="headerlink" title="添加物体"></a>添加物体</h2><p>添加物体四步走：指定物体类型，指定物体材质，创建物体对象，添加物体到场景。以一个棱长为5的正四棱柱为例：</p>
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">let geometry = new THREE.BoxGeometry(5, 5, 5);//长宽高
-let material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-let box0 =  new THREE.Mesh(geometry, material);
-scene.add(box0);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>一般情况下，创建完geometry、material两个变量不会再被使用，所以创建部分也可以写成一句</p>
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">let box0 =  new THREE.Mesh(
-    new THREE.BoxGeometry(5, 5, 5), 
-    new THREE.MeshBasicMaterial({ color: 0xff0000 })
-);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="创建渲染器并渲染场景"><a href="#创建渲染器并渲染场景" class="headerlink" title="创建渲染器并渲染场景"></a>创建渲染器并渲染场景</h2><p>这东西也没研究，照抄官方教程。</p>
-<p>需要提前在网页中创建id为”container”的标签来容纳场景。</p>
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);//渲染的大小就是场景的大小
-document.getElementById("#container").append(renderer.domElement);
-renderer.render(scene);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这几步都完成以后打开网页，就能看见场景和刚才创建的红色四棱柱了。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://threejs.org/docs/index.html#manual/zh/introduction/Creating-a-scene">Three.js documentation</a></p>
+    db 1,2,3,4,5,6,7,8
+
+a ends
+
+b segment
+
+    db 1,2,3,4,5,6,7,8
+
+b ends
+
+c segment
+
+    db 0,0,0,0,0,0,0,0
+
+c ends
+
+code segment
+
+start:
+
+？？？？？？？
+
+    mov ax,4c00h
+
+    int 21h
+
+code ends
+
+end start</code></pre>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这个题有三个数据段，但是段寄存器只有ds,es两个。。。手上这本旧课本的主人写的笔记是拿ss当第三个<br>段寄存器，这。。。应该不行吧？想破头也想不通，遂谷歌之。</p>
+<p>其中一种解决思路是引入更多的寄存器。比如si,di等。因为之前没有接触过这类寄存器，<br>不知道使用上有什么讲究，因此不采用这种思路。</p>
+<p>还有一种思路是利用栈暂存段寄存器中的数据，暂时更改段寄存器指向的段，后面再恢复成原来的值。</p>
+<p>核心代码:</p>
+<pre class="language-none"><code class="language-none">push ds
+mov ax,c
+mov ds,ax
+......
+pop ds</code></pre>
+<p>这种思路虽然效率不太好，但是知识范围没有超纲。</p>
+<p>最终代码如下</p>
+<pre class="language-none"><code class="language-none">  mov ax,a
+  mov ds,ax
+  mov ax,b
+  mov es,ax
+  mov ax,0
+  mov bx,0
+  
+s:mov al,[bx]
+  add al,es:[bx]
+  push ds
+  mov dx,c
+  mov ds,dx
+  mov [bx],ax
+  pop ds
+  inc bx
+  loop s
+  
+  mov ax,4c00h
+  int 21h
+</code></pre>
+
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>调试过程中，曾经利用ax来作为偏移量寻址，类似 mov bl,[ax] 这样的，但是编译时报错，<br>查阅资料发现16位处理器不能使用ax寻址，原因不知道。（书上貌似没写）（补充：在后面第8章写了）</p>
 
                 
             </div>
@@ -377,7 +390,7 @@ renderer.render(scene);<span aria-hidden="true" class="line-numbers-rows"><span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://louisz.top/2023/02/6.html">https://louisz.top/2023/02/6.html</a>
+                    <a href="https://louisz.top/2023/02/17545.html">https://louisz.top/2023/02/17545.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -415,12 +428,12 @@ renderer.render(scene);<span aria-hidden="true" class="line-numbers-rows"><span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">开发笔记</span>
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">学习笔记</span>
                                 </a>
                             
-                                <a href="/tags/JavaScript/">
-                                    <span class="chip bg-color">JavaScript</span>
+                                <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">汇编语言</span>
                                 </a>
                             
                         </div>
@@ -470,24 +483,24 @@ renderer.render(scene);<span aria-hidden="true" class="line-numbers-rows"><span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/02/4.html">
+                <a href="/2023/03/35335.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.ncmc.me/static/medias/featureimages/2.jpg" class="responsive-img" alt="nginx配置防盗链">
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/17.jpg" class="responsive-img" alt="再游湖畔">
                         
-                        <span class="card-title">nginx配置防盗链</span>
+                        <span class="card-title">再游湖畔</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            通过判断referer的合法性来防止盗链
+                            熟悉的湖畔，新的体会
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-05
                         </span>
                         <span class="publish-author">
                             
@@ -500,8 +513,8 @@ renderer.render(scene);<span aria-hidden="true" class="line-numbers-rows"><span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/">
-                        <span class="chip bg-color">日积月累</span>
+                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                        <span class="chip bg-color">生活</span>
                     </a>
                     
                 </div>
@@ -515,24 +528,24 @@ renderer.render(scene);<span aria-hidden="true" class="line-numbers-rows"><span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/02/3.html">
+                <a href="/2023/02/21985.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.ncmc.me/static/medias/featureimages/8.jpg" class="responsive-img" alt="JavaScript压缩和混淆">
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/15.jpg" class="responsive-img" alt="开端">
                         
-                        <span class="card-title">JavaScript压缩和混淆</span>
+                        <span class="card-title">开端</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单总结JavaScript压缩和混淆
+                            新的开端，新的生活
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-19
                             </span>
                         <span class="publish-author">
                             
@@ -545,8 +558,8 @@ renderer.render(scene);<span aria-hidden="true" class="line-numbers-rows"><span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/">
-                        <span class="chip bg-color">日积月累</span>
+                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                        <span class="chip bg-color">生活</span>
                     </a>
                     
                 </div>
