@@ -6,6 +6,11 @@
 body.DarkMode{
     background-color:#A18686;
 }
+
+p.hideblack{
+    color:#000;
+    background:#000;
+}
 /*
 header .nav-transparent {
     background-image: linear-gradient(to right, #53535e 0%, #191e23 100%);
