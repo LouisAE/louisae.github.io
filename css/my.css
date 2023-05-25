@@ -8,8 +8,13 @@ body.DarkMode{
 }
 
 p.hideblack{
+    transition:color 0.13s linear;
     color:#000;
     background:#000;
+}
+
+p.hideblack:hover{
+    color:#fff;
 }
 /*
 header .nav-transparent {

@@ -6,7 +6,7 @@
   <link href="https://louisz.top/atom.xml" rel="self"/>
   
   <link href="https://louisz.top/"/>
-  <updated>2023-03-25T04:45:55.683Z</updated>
+  <updated>2023-05-25T03:56:15.352Z</updated>
   <id>https://louisz.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++类与对象之析构函数</title>
+    <link href="https://louisz.top/2023/05/34611.html"/>
+    <id>https://louisz.top/2023/05/34611.html</id>
+    <published>2023-05-25T03:27:56.000Z</published>
+    <updated>2023-05-25T03:56:15.352Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;在对象被撤销时，清理对象的内存。然而析构函数并不能释放对象占用的内存，只是事先做一些清理的工作。&lt;/p&gt;
+&lt;h2 id=&quot;语法&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="https://louisz.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="C++" scheme="https://louisz.top/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>8086汇编中物理地址的合成方式</title>
