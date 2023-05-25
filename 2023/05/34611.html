@@ -302,6 +302,8 @@
     <span class="token keyword">public</span><span class="token operator">:</span>
         <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
         <span class="token operator">~</span><span class="token function">Myclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">noexcept</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token comment">//或者</span>
+        <span class="token comment">//~Myclass() {};</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>附注：在新版本C++中，建议使用noexcept关键字，表示析构函数不会抛出异常。如果使用新版本编译器，没有使用该关键字的析构函数会被自动加上该关键字。</p>
 

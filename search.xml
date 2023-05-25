@@ -8,7 +8,7 @@
       <link href="/2023/05/34611.html"/>
       <url>/2023/05/34611.html</url>
       
-        <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在对象被撤销时，清理对象的内存。然而析构函数并不能释放对象占用的内存，只是事先做一些清理的工作。</p><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>函数名和类名一致，以~开头，没有返回值，不带参数。</p><pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Myclass</span><span class="token punctuation">{</span>    <span class="token keyword">public</span><span class="token operator">:</span>        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>        <span class="token operator">~</span><span class="token function">Myclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">noexcept</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>附注：在新版本C++中，建议使用noexcept关键字，表示析构函数不会抛出异常。如果使用新版本编译器，没有使用该关键字的析构函数会被自动加上该关键字。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在对象被撤销时，清理对象的内存。然而析构函数并不能释放对象占用的内存，只是事先做一些清理的工作。</p><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>函数名和类名一致，以~开头，没有返回值，不带参数。</p><pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Myclass</span><span class="token punctuation">{</span>    <span class="token keyword">public</span><span class="token operator">:</span>        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>        <span class="token operator">~</span><span class="token function">Myclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">noexcept</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>        <span class="token comment">//或者</span>        <span class="token comment">//~Myclass() {};</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>附注：在新版本C++中，建议使用noexcept关键字，表示析构函数不会抛出异常。如果使用新版本编译器，没有使用该关键字的析构函数会被自动加上该关键字。</p>]]></content>
       
       
       
@@ -56,9 +56,9 @@
       
         <tags>
             
-            <tag> 开发笔记 </tag>
-            
             <tag> 代发 </tag>
+            
+            <tag> 开发笔记 </tag>
             
         </tags>
       
