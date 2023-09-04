@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="再游湖畔, 路易零世的博客">
-    <meta name="description" content="熟悉的湖畔，新的体会">
+    <meta name="keywords" content="抽象、分层、派生, 路易零世的博客">
+    <meta name="description" content="阅读《程序员的自我修养》第一章后所作总结">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>再游湖畔 | 路易零世的博客</title>
+    <title>抽象、分层、派生 | 路易零世的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.ncmc.me/static/favicon.png">
     
 
@@ -218,7 +218,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">再游湖畔</h1>
+                    <h1 class="description center-align post-title">抽象、分层、派生</h1>
                 </div>
             </div>
         </div>
@@ -242,8 +242,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                                <span class="chip bg-color">生活</span>
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">学习笔记</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">读书笔记</span>
                             </a>
                         
                     </div>
@@ -258,14 +262,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-05
+                    2023-09-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-25
+                    2023-09-04
                 </div>
                 
 
@@ -292,14 +296,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>子在川上曰：“逝者如斯夫，不舍昼夜”。时间如河水一般滚滚流去，曾经熟悉的事物所发生的变化也大得让人吃惊。</p>
-<p>时隔两个月，我又一次循着熟悉的湖边小路散步。拦腰高的石头围栏，被齐胸高、涂着黑灰色油漆的铁制栏杆所取代。
-和两个月前相比，本就很低的水位变得更低了。原本靠近湖岸的浅滩被剥去外衣，露出崎岖不平的身躯。
-长在湖的一角的一片矮竹林被连根拔起装进垃圾袋，随意地放在路旁。这片林子曾经充满了鸟儿们的欢声笑语。</p>
-<p><img src="https://cdn.ncmc.me/2023/03/00/00.jpg" alt="路旁的遗弃物"></p>
-<p>在另一个角落，我发现了那些被替换掉、兢兢业业几十载的石围栏的最终归宿——它们躺在水里一言不发，不知是嘲讽，抑或是悲哀。</p>
-<p><img src="https://cdn.ncmc.me/2023/03/00/01.jpg" alt="水中石柱"></p>
-<p>距离上一次在湖畔散步不过数周，在某位领导的脑子一热、大腿一拍之下，这片湖就发生了如此大的变化。实在不得不感慨世事难料。静止的事物尚且如此，人就更过之而无不及了。也不知下次再见到那位临走时说”我没有家“的特殊的女孩子的时候，她是否也会发生如此大的变化呢？</p>
+                <p>注：本文为阅读《程序员的自我修养》第一章后所作总结。</p>
+<p>书本对第一章的定位是“基础复习”，但是对我而言并不算复习，而更像是基础知识科普，或者说，是为了能读懂这本书而学习的一些新内容。
+这本书的作者也的确高明，虽然我过去基本上没有学习过这些内容，但也能够基本明白第一章所介绍的东西。</p>
+<p>总的来说，我认为第一章的内容总结起来就是三点：抽象、分层、派生</p>
+<h2 id="抽象">抽象</h2>
+<p>操作系统通过驱动程序的方式，把实际的硬件操作抽象为接口，并提供给各类软件，程序员无需关心发送什么指令、 指令发往哪个端口等细节，可以把更多的时间
+花在具体功能的实现上。</p>
+<p>内存方面则通过隔离、段映射和分页的方式，把实际的物理内存抽象为独立的内存空间，使内存的利用效率大大提高。</p>
+<p>在CPU资源的分配方面，时间片机制让多进程同时运行得以实现，对每个进程而言，它们都独占一个抽象的CPU。每个进程中又可以分为多个线程，
+每个线程享有独占的寄存器和栈空间，这些独占空间同样是抽象的结果。</p>
+<p>硬件设备本身也有抽象，如书中提到的硬盘LBA扇区编号方式，把盘面、磁道、扇区疏密等细节抽象为带编号的逻辑扇区，供操作系统读取，为开发人员提供了极大的便利。</p>
+<p>另外，像Java、Python、.Net、Nodejs等语言，也是建立在各自的抽象框架上的。如Java有JVM虚拟机，Python是CPython解释器。</p>
+<h2 id="分层">分层</h2>
+<p>我认为，分层实质上是抽象的结果。下面这张图来自于书中（侵删）：
+<img src="https://cdn.ncmc.me/2023/09/00/00.jpg" alt="计算机软件体系结构"></p>
+<p>操作系统把硬件抽象为供软件使用的各种接口，于是操作系统就是硬件的上一层。各种运行库给软件提供和操作系统交互的抽象接口，因此运行库成为
+了操作系统的上一层。所有的上层软件就通过这种分层结构井然有序地进行工作。</p>
+<h2 id="派生">派生</h2>
+<p>派生是指在已有的基础上，加入新的特性，形成新的东西。</p>
+<p>第一章中一个很明显的派生的例子是线程的锁机制。总共有四种锁：信号量、互斥量、临界区、读写锁。我认为，前三种锁构成典型的派生关系。如图</p>
+<p><img src="https://cdn.ncmc.me/2023/09/00/01.jpg" alt="锁的派生关系"></p>
+<p>从上往下，每种锁在加入了新的特性后派生为新的锁。这和面向对象编程中类的派生十分类似。很多计算机软硬件的不断发展就是一个不断派生的过程。</p>
+<p>最早的计算机中，处理器和内存以及各种I/O控制器连接在同一条总线上。随着硬件发展，出现了北桥、南桥等中转设备，再后来又出现了PCIe等
+总线结构以满足新硬件的需求。基于冯诺依曼结构，人们不断加入新的硬件，形成了现在的计算机。这种派生的思想在开发中也十分重要。</p>
 
                 
             </div>
@@ -326,7 +346,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://louisz.top/2023/03/35335.html">https://louisz.top/2023/03/35335.html</a>
+                    <a href="https://louisz.top/2023/09/15822.html">https://louisz.top/2023/09/15822.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -364,8 +384,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                                    <span class="chip bg-color">生活</span>
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">学习笔记</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">读书笔记</span>
                                 </a>
                             
                         </div>
@@ -411,29 +435,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/03/56157.html">
+                <a href="/2023/09/15822.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.ncmc.me/static/medias/featureimages/15.jpg" class="responsive-img" alt="搓一个语音唤醒">
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/17.jpg" class="responsive-img" alt="抽象、分层、派生">
                         
-                        <span class="card-title">搓一个语音唤醒</span>
+                        <span class="card-title">抽象、分层、派生</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            语音唤醒开发记录（尚未成功，躺
+                            阅读《程序员的自我修养》第一章后所作总结
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -442,15 +467,16 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BB%A3%E5%8F%91/">
-                        <span class="chip bg-color">代发</span>
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
                     </a>
                     
-                    <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">开发笔记</span>
+                    <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">读书笔记</span>
                     </a>
                     
                 </div>
@@ -464,24 +490,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/02/17545.html">
+                <a href="/2023/06/31156.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.ncmc.me/static/medias/featureimages/6.jpg" class="responsive-img" alt="王爽《汇编语言》实验5 (5)">
+                        <img src="https://cdn.ncmc.me/static/medias/featureimages/23.jpg" class="responsive-img" alt="在Visual Studio中使用libcurl">
                         
-                        <span class="card-title">王爽《汇编语言》实验5 (5)</span>
+                        <span class="card-title">在Visual Studio中使用libcurl</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结此实验过程和收获
+                            实验在Visual Studio C++项目中使用libcurl实现https访问
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-08
                             </span>
                         <span class="publish-author">
                             
@@ -498,8 +524,12 @@
                         <span class="chip bg-color">学习笔记</span>
                     </a>
                     
-                    <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
-                        <span class="chip bg-color">汇编语言</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%9E%E9%AA%8C/">
+                        <span class="chip bg-color">实验</span>
                     </a>
                     
                 </div>

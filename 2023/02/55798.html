@@ -61,9 +61,9 @@
 
     <script src="https://cdn.ncmc.me/static/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="路易零世的博客" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="路易零世的博客" type="application/atom+xml">
 </head>
 
 
@@ -292,11 +292,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="什么是JavaScript压缩和混淆？"><a href="#什么是JavaScript压缩和混淆？" class="headerlink" title="什么是JavaScript压缩和混淆？"></a>什么是JavaScript压缩和混淆？</h2><p>开发人员编写JS代码的时候，有许多格式规范，写出来的代码十分易读、方便开发。<br>而各大网站使用的JS代码，多数都是挤成一团的，肉眼看上去毫无章法可言，可读性几乎为零。</p>
-<p>这些让人“不忍直视”的代码，就是被压缩和混淆过的。一般的压缩通常只是除去注释、空行<br>和空格等，而混淆还会将变量名、函数名等替换成一些无意义的字符，还可能会添加一些<br>无意义的代码。</p>
-<h2 id="如何进行压缩和混淆？"><a href="#如何进行压缩和混淆？" class="headerlink" title="如何进行压缩和混淆？"></a>如何进行压缩和混淆？</h2><p>目前比较流行的混淆工具有Uglify和Google Closure Compiler等。在混淆的<br>过程中，工具还会对代码进行优化，有点类似于C语言编译器的预处理。</p>
-<h2 id="压缩、混淆的作用"><a href="#压缩、混淆的作用" class="headerlink" title="压缩、混淆的作用"></a>压缩、混淆的作用</h2><p>主要是提高JavaScript代码的运行效率，缩小代码体积。一定程度上还可以隐藏代码的运行逻辑<br>起到版权保护的作用。</p>
-<h2 id="随便写写"><a href="#随便写写" class="headerlink" title="随便写写"></a>随便写写</h2><p>个人认为压缩、混淆对代码的保护作用十分有限。如果使用的是一般的混淆方法，<br>很容易就能够还原出大致的框架。部分混淆方法混淆的代码甚至可以完整还原出所有变量名。<br>尽管有些比较“变态”的加密工具，如JavaScript Obfuscator，可以真正做到加密代码，<br>但这最多也就是提高逆向成本罢了。如果真的既要保护代码又非得用JS不可，<br>感觉WebAssembly是个比较好的解决方案。</p>
+                <h2 id="什么是JavaScript压缩和混淆？">什么是JavaScript压缩和混淆？</h2>
+<p>开发人员编写JS代码的时候，有许多格式规范，写出来的代码十分易读、方便开发。
+而各大网站使用的JS代码，多数都是挤成一团的，肉眼看上去毫无章法可言，可读性几乎为零。</p>
+<p>这些让人“不忍直视”的代码，就是被压缩和混淆过的。一般的压缩通常只是除去注释、空行
+和空格等，而混淆还会将变量名、函数名等替换成一些无意义的字符，还可能会添加一些
+无意义的代码。</p>
+<h2 id="如何进行压缩和混淆？">如何进行压缩和混淆？</h2>
+<p>目前比较流行的混淆工具有Uglify和Google Closure Compiler等。在混淆的
+过程中，工具还会对代码进行优化，有点类似于C语言编译器的预处理。</p>
+<h2 id="压缩、混淆的作用">压缩、混淆的作用</h2>
+<p>主要是提高JavaScript代码的运行效率，缩小代码体积。一定程度上还可以隐藏代码的运行逻辑
+起到版权保护的作用。</p>
+<h2 id="随便写写">随便写写</h2>
+<p>个人认为压缩、混淆对代码的保护作用十分有限。如果使用的是一般的混淆方法，
+很容易就能够还原出大致的框架。部分混淆方法混淆的代码甚至可以完整还原出所有变量名。
+尽管有些比较“变态”的加密工具，如JavaScript Obfuscator，可以真正做到加密代码，
+但这最多也就是提高逆向成本罢了。如果真的既要保护代码又非得用JS不可，
+感觉WebAssembly是个比较好的解决方案。</p>
 
                 
             </div>

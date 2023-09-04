@@ -6,7 +6,7 @@
   <link href="https://louisz.top/atom.xml" rel="self"/>
   
   <link href="https://louisz.top/"/>
-  <updated>2023-06-09T04:47:02.420Z</updated>
+  <updated>2023-09-04T08:05:22.346Z</updated>
   <id>https://louisz.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>抽象、分层、派生</title>
+    <link href="https://louisz.top/2023/09/15822.html"/>
+    <id>https://louisz.top/2023/09/15822.html</id>
+    <published>2023-09-03T07:52:15.000Z</published>
+    <updated>2023-09-04T08:05:22.346Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;注：本文为阅读《程序员的自我修养》第一章后所作总结。&lt;/p&gt;
+&lt;p&gt;书本对第一章的定位是“基础复习”，但是对我而言并不算复习，而更像是基础知识科普，或者说，是为了能读懂这本书而学习的一些新内容。
+这本书的作者也的确高明，虽然我过去基本上没有学习过这些内容，但也能够基本明白第</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="https://louisz.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="读书笔记" scheme="https://louisz.top/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>在Visual Studio中使用libcurl</title>
@@ -28,7 +55,11 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;0x0-前言&quot;&gt;&lt;a href=&quot;#0x0-前言&quot; class=&quot;headerlink&quot; title=&quot;0x0 前言&quot;&gt;&lt;/a&gt;0x0</summary>
+    <summary type="html">&lt;h2 id=&quot;0x0-前言&quot;&gt;0x0 前言&lt;/h2&gt;
+&lt;p&gt;最近的一个C++项目中需要实现发送http请求的功能，计划使用有名的开源库libcurl来做。
+相关工具和代码的版本以及一些约定如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Visual Studio</summary>
         
       
     
@@ -55,8 +86,11 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;在对象被撤销时，清理对象的内存。然而析构函数并不能释放对象占用的内存，只是事先做一些清理的工作。&lt;/p&gt;
-&lt;h2 id=&quot;语法&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h2 id=&quot;概念&quot;&gt;概念&lt;/h2&gt;
+&lt;p&gt;在对象被撤销时，清理对象的内存。然而析构函数并不能释放对象占用的内存，只是事先做一些清理的工作。&lt;/p&gt;
+&lt;h2 id=&quot;语法&quot;&gt;语法&lt;/h2&gt;
+&lt;p&gt;函数名和类名一致，以~开头，没有返回值，不带参数。&lt;/p&gt;
+&lt;pre</summary>
         
       
     
@@ -81,7 +115,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2</summary>
         
       
     
@@ -109,7 +143,8 @@
     <summary type="html">&lt;p&gt;（非原创，代某位卷王发送）&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;（哈哈 这个排版 稀烂咯）&lt;/p&gt;
-&lt;h2 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot; class=&quot;headerlink&quot; title=&quot;目标&quot;&gt;&lt;/a&gt;目标&lt;/h2&gt;&lt;p&gt;搓一个语音唤醒（keyword</summary>
+&lt;h2 id=&quot;目标&quot;&gt;目标&lt;/h2&gt;
+&lt;p&gt;搓一个语音唤醒（keyword</summary>
         
       
     
@@ -135,7 +170,8 @@
         
         
     <summary type="html">&lt;p&gt;子在川上曰：“逝者如斯夫，不舍昼夜”。时间如河水一般滚滚流去，曾经熟悉的事物所发生的变化也大得让人吃惊。&lt;/p&gt;
-&lt;p&gt;时隔两个月，我又一次循着熟悉的湖边小路散步。拦腰高的石头围栏，被齐胸高、涂着黑灰色油漆的铁制栏杆所取代。&lt;br&gt;和两个月前相比，本就很低的水位变得更低了。</summary>
+&lt;p&gt;时隔两个月，我又一次循着熟悉的湖边小路散步。拦腰高的石头围栏，被齐胸高、涂着黑灰色油漆的铁制栏杆所取代。
+和两个月前相比，本就很低的水位变得更低了。原本靠</summary>
         
       
     
@@ -158,8 +194,11 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;原题&quot;&gt;&lt;a href=&quot;#原题&quot; class=&quot;headerlink&quot; title=&quot;原题&quot;&gt;&lt;/a&gt;原题&lt;/h2&gt;&lt;p&gt;编写code段中的代码，将a段和b段数据依次相加，结果存入c段&lt;/p&gt;
-&lt;pre class=&quot;language-none&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h2 id=&quot;原题&quot;&gt;原题&lt;/h2&gt;
+&lt;p&gt;编写code段中的代码，将a段和b段数据依次相加，结果存入c段&lt;/p&gt;
+&lt;pre class=&quot;language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;assume cs:code
+
+a</summary>
         
       
     
@@ -186,7 +225,8 @@
         
     <summary type="html">&lt;p&gt;开学了。&lt;/p&gt;
 &lt;p&gt;恰是春季，尽管还有些许寒意，也难掩生机勃勃。曾经因封控而变得冷清的街道，也恢复了往日的繁荣。&lt;/p&gt;
-&lt;p&gt;火车站一如既往，不一样的是车站大门口悬挂的写着“请出示健康码”的牌子不见了，那些低头操作手机寻找健康码、堵住通道的旅客没有了。&lt;br&gt;候车大厅</summary>
+&lt;p&gt;火车站一如既往，不一样的是车站大门口悬挂的写着“请出示健康码”的牌子不见了，那些低头操作手机寻找健康码、堵住通道的旅客没有了。
+候车大厅也似乎</summary>
         
       
     
@@ -209,7 +249,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;群星异闻录&quot;&gt;&lt;a href=&quot;#群星异闻录&quot; class=&quot;headerlink&quot; title=&quot;群星异闻录&quot;&gt;&lt;/a&gt;&lt;span</summary>
+    <summary type="html">&lt;h1&gt;&lt;span style=&quot;display:block;text-align:center;color:lightblue;&quot;&gt;群星异闻录&lt;/span&gt;&lt;/h1&gt;
+&lt;p&gt;本文非原创，是代替某卷王存档的文章&lt;/p&gt;
+&lt;h2</summary>
         
       
     
@@ -259,7 +301,15 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;总流程&quot;&gt;&lt;a href=&quot;#总流程&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;总流程&quot;&gt;总流程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;新建一个空的场景&lt;/li&gt;
+&lt;li&gt;添加相机和灯光&lt;/li&gt;
+&lt;li&gt;添加各个物体&lt;/li&gt;
+&lt;li&gt;创建渲染器&lt;/li&gt;
+&lt;li&gt;使用渲染器渲染场景&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2</summary>
         
       
     
@@ -284,7 +334,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;什么是JavaScript压缩和混淆？&quot;&gt;&lt;a href=&quot;#什么是JavaScript压缩和混淆？&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2</summary>
         
       
     
