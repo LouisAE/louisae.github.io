@@ -308,25 +308,25 @@
 类型的情况好像不是很常见。我遇到的可以用联合处理的问题大概也就是中英文字符串混用吧？比如需要
 读取一些名字，有英文名也有非英文名，像中文、日文、韩文、阿拉伯语这些文字。于是联合声明一种Name类
 型：</p>
-<pre class="language-c++" data-language="c++"><code class="language-c++">union Name{
-	string english;
-	wstring others;
-};</code></pre>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">union</span> Name<span class="token punctuation">{</span>
+	string english<span class="token punctuation">;</span>
+	wstring others<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>这样就可以同时处理各种不同编码的语言（虽然现在大家都倾向于UTF-8一把梭www）。</p>
 <h3 id="枚举enum">枚举<code>enum</code></h3>
 <p>这种类型是比较常用的，无论是用C++写成的Qt库，还是C语言写成的libcurl，都有用到这种类型。
 枚举的功能类似 C++ STL 里面的<code>map</code>，也就是映射，但是比较单一。它可以把一些标识符映射成
 对应的数字常量。例如，在 libcurl 项目的 curl.h 中有如下定义：</p>
-<pre class="language-c++" data-language="c++"><code class="language-c++">typedef enum {
-  CURLE_OK = 0,
-  CURLE_UNSUPPORTED_PROTOCOL,    /* 1 */
-  CURLE_FAILED_INIT,             /* 2 */
-  CURLE_URL_MALFORMAT,           /* 3 */
-  CURLE_NOT_BUILT_IN,            /* 4 - [was obsoleted in August 2007 for
-                                    7.17.0, reused in April 2011 for 7.21.5] */
-  CURLE_COULDNT_RESOLVE_PROXY,   /* 5 */
-  ......
-}CURLcode;</code></pre>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token punctuation">{</span>
+  CURLE_OK <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  CURLE_UNSUPPORTED_PROTOCOL<span class="token punctuation">,</span>    <span class="token comment">/* 1 */</span>
+  CURLE_FAILED_INIT<span class="token punctuation">,</span>             <span class="token comment">/* 2 */</span>
+  CURLE_URL_MALFORMAT<span class="token punctuation">,</span>           <span class="token comment">/* 3 */</span>
+  CURLE_NOT_BUILT_IN<span class="token punctuation">,</span>            <span class="token comment">/* 4 - [was obsoleted in August 2007 for
+                                    7.17.0, reused in April 2011 for 7.21.5] */</span>
+  CURLE_COULDNT_RESOLVE_PROXY<span class="token punctuation">,</span>   <span class="token comment">/* 5 */</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>CURLcode<span class="token punctuation">;</span></code></pre>
 <p>在这一块代码中，定义了错误码类型<code>CURLcode</code>，通过把标识符映射为错误码的方式，给各种错误定义了
 对应的错误码，并且和变量不同，它们是常量。如<code>CURLcode::CURLE_OK</code>等价于常数0。</p>
 <p>注意到，这里显式地声明第一个标识符映射到0，于是默认地，后面的标识符映射到的数字依次
@@ -348,8 +348,8 @@
 行恶意代码。（应该是）由于这个原因，诸多C++经典教程中教的如<code>scanf()</code>、<code>gets()</code>
 这样不检查输入大小的函数在MSVC中已经被默认禁用。</p>
 <h2 id="参考">参考</h2>
-<p><a target="_blank" rel="noopener" href="https://www.cloudflare.com/learning/security/threats/buffer-overflow/">Cloudflare</a>
-<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA">维基百科</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cloudflare.com/learning/security/threats/buffer-overflow/">Cloudflare</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA">维基百科</a></p>
 
                 
             </div>
