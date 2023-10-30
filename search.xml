@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>C++类的成员函数指针</title>
+      <link href="/2023/10/27019.html"/>
+      <url>/2023/10/27019.html</url>
+      
+        <content type="html"><![CDATA[<p>最近学习的过程中，碰到了这样一个代码：</p><pre class="language-cpp" data-language="cpp"><code class="language-cpp">SampleClass sc<span class="token punctuation">;</span>  <span class="token keyword">void</span> <span class="token punctuation">(</span>SampleClass<span class="token double-colon punctuation">::</span><span class="token operator">*</span>fptr1<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>SampleClass<span class="token double-colon punctuation">::</span>Method<span class="token punctuation">;</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span><span class="token operator">*</span>fptr1<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>刚看见这个代码的时候我是很迷惑的，并且理所当然地认为这代码会编译出错。因为SampleClass类中并没有一个叫做fptr1的成员。然而实际测试这个代码却正确编译并且执行了sc对象的Method。</p><p>谷歌了一波，发现这是一种叫做“公有成员函数指针“的东西。看过网友们的解释后再看变量的定义，才发现它十分特殊。</p><p>首先，从定义上看，fptr1不同于一般的函数指针，它的定义中绑定了一个类。</p><pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 一般函数指针</span><span class="token keyword">void</span> <span class="token punctuation">(</span><span class="token operator">*</span>funcptr<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 成员函数指针</span><span class="token keyword">void</span> <span class="token punctuation">(</span>MyClass<span class="token double-colon punctuation">::</span><span class="token operator">*</span>funcptr<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>这种定义的格式使我一度误以为这一句在运行时给类添加了成员，并且感到大受震撼。然而这行定义的意义是：定义一个名为fptr1的函数指针，它只能指向SampleClass类的公有成员函数。后半部分的初始化也十分特殊。SampleClass::Method并不具有实际的地址，因为它还没有被实例化。因此这个初始化的意义是：把fptr1绑定到SampleClass的成员函数Method，运行时再决定这个指针具体指向的地址。因此通过这个指针调用函数时，还需要指定它调用的函数所属的对象（上面代码中的sc）。尽管调用的格式看起来就像是访问一个成员，但实际上fptr1是个变量，而非SampleClass的成员。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>联合及枚举、特殊指针、流</title>
       <link href="/2023/09/13518.html"/>
       <url>/2023/09/13518.html</url>

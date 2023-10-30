@@ -6,7 +6,7 @@
   <link href="https://louisz.top/atom.xml" rel="self"/>
   
   <link href="https://louisz.top/"/>
-  <updated>2023-09-10T09:50:01.401Z</updated>
+  <updated>2023-10-30T12:28:59.372Z</updated>
   <id>https://louisz.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++类的成员函数指针</title>
+    <link href="https://louisz.top/2023/10/27019.html"/>
+    <id>https://louisz.top/2023/10/27019.html</id>
+    <published>2023-10-30T12:00:41.000Z</published>
+    <updated>2023-10-30T12:28:59.372Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近学习的过程中，碰到了这样一个代码：&lt;/p&gt;
+&lt;pre class=&quot;language-cpp&quot; data-language=&quot;cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;SampleClass sc&lt;span class=&quot;token</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="https://louisz.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="C++" scheme="https://louisz.top/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>联合及枚举、特殊指针、流</title>
